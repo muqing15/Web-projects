@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.video.mapper.VideoMapper">
+    <!--<select id="findbyid" parameterType="Integer" resultMap="StudentResult">  -->
+        <!--select *from student where id=#{id}  -->
+    <!--</select>-->
+
+    <!--<select id="findbygradeid" parameterType="Integer" resultMap="StudentResult">  -->
+        <!--select *from student where gid=#{gid}  -->
+    <!--</select>-->
+
+    <!--<resultMap type="Student" id="StudentResult">-->
+    <!--<id property="id" column="id"/>-->
+    <!--<result property="name" column="name"/>-->
+    <!--<result property="age" column="age"/>-->
+    <!--<association property="address" column="addid" select="com.qbd.mapper.AddressMappers.findbyid">-->
+    <!--</association>-->
+    <!--<association property="grade" column="gid" select="com.qbd.mapper.GradeMappers.findbyid">-->
+    <!--</association>-->
+    <!--</resultMap>-->
+
+    <!--<resultMap type="cn.video.pojo.Video" id="BaseResMap">-->
+    <!--<id property="id" column="id" jdbcType="INTEGER" javaType="int"/>-->
+    <!--<result property="vname" column="vname" jdbcType="VARCHAR" javaType="String"/>-->
+    <!--<result property="url" column="url" jdbcType="VARCHAR" javaType="String"/>-->
+    <!--<result property="picture" column="picture" jdbcType="VARCHAR" javaType="String"/>-->
+    <!--<result property="type" column="type" jdbcType="INTEGER" javaType="int" />-->
+    <!--<result property="createDate" column="createdate" jdbcType="DATE" javaType="java.util.Date" />-->
+    <!--<result property="created_by" column="created_by" jdbcType="INTEGER" javaType="int" />-->
+    <!--</resultMap>-->
+    <!--<select id="selectAllVideosPaged" resultMap="BaseResMap" >-->
+        <!--select * from videos-->
+        <!--where type  = #{type}-->
+        <!--limit #{startPage},#{pageSize};-->
+    <!--</select>-->
+    <!--<select id="queryAll" resultMap="userBaseResMap">-->
+        <!--select * from users;-->
+    <!--</select>-->
+
+    <!--<select id="selectByPhone" resultType="cn.video.pojo.User">-->
+    <!--select * from  users where phone = #{phone}-->
+    <!--</select>-->
+
+    <!--<insert id="insertUser" parameterType="cn.video.pojo.User">-->
+      <!--insert into users(phone,password) values(#{phone},#{password})-->
+    <!--</insert>-->
+</mapper>

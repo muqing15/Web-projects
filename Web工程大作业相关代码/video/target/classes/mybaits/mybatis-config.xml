@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<typeAliases>-->
+        <!--&lt;!&ndash;之后用于测试&ndash;&gt;-->
+        <!--<typeAlias type="com.javafeng.entity.User" alias="User" />-->
+    <!--</typeAliases>-->
+</configuration>

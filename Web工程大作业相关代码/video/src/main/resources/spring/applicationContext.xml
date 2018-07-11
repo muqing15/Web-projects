@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:properties/db.properties"/>
+    <context:component-scan base-package="cn.video"/>
+    <bean id="dataSource"
+          class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybaits/mybatis-config.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.video.mapper" />
+    </bean>
+    <!--<bean id="userMaper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+        <!--&lt;!&ndash;sqlSessionFactory属性指定要用到的SqlSessionFactory实例&ndash;&gt;-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
+        <!--&lt;!&ndash;mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象&ndash;&gt;-->
+        <!--<property name="mapperInterface" value="cn.video.mapper.UserMapper" />-->
+    <!--</bean>-->
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--<tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>-->
+
+    <!--邮箱推荐-->
+    <!-- 使用qq邮箱 -->
+    <!--<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">-->
+        <!--&lt;!&ndash;         <property name="host" value="smtp.qq.com"/> &ndash;&gt;-->
+        <!--<property name="host" value="smtp.exmail.qq.com"/>-->
+        <!--<property name="port" value="587"/>-->
+        <!--&lt;!&ndash;         <property name="username" value="xxxxx@qq.com"/> &ndash;&gt;-->
+        <!--<property name="username" value="xxxx@xxxxx.com"/>-->
+        <!--&lt;!&ndash; qq邮箱的授权码，如果是企业邮箱，则使用登录密码 &ndash;&gt;-->
+        <!--&lt;!&ndash;         <property name="password" value="xxxxxxxxxxxxxxx"/> &ndash;&gt;-->
+        <!--<property name="password" value="xxxxxxxxxxxxxxx"/>-->
+        <!--<property name="javaMailProperties">-->
+            <!--<props >-->
+                <!--<prop key="mail.smtp.auth">true</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">-->
+        <!--&lt;!&ndash; 最大连接数 &ndash;&gt;-->
+        <!--<property name="maxTotal" value="30" />-->
+        <!--&lt;!&ndash; 最大空闲连接数 &ndash;&gt;-->
+        <!--<property name="maxIdle" value="10" />-->
+        <!--&lt;!&ndash; 每次释放连接的最大数目 &ndash;&gt;-->
+        <!--<property name="numTestsPerEvictionRun" value="1024" />-->
+        <!--&lt;!&ndash; 释放连接的扫描间隔（毫秒） &ndash;&gt;-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="30000" />-->
+        <!--&lt;!&ndash; 连接最小空闲时间 &ndash;&gt;-->
+        <!--<property name="minEvictableIdleTimeMillis" value="1800000" />-->
+        <!--&lt;!&ndash; 连接空闲多久后释放, 当空闲时间>该值 且 空闲连接>最大空闲连接数 时直接释放 &ndash;&gt;-->
+        <!--<property name="softMinEvictableIdleTimeMillis" value="10000" />-->
+        <!--&lt;!&ndash; 获取连接时的最大等待毫秒数,小于零:阻塞不确定的时间,默认-1 &ndash;&gt;-->
+        <!--<property name="maxWaitMillis" value="1500" />-->
+        <!--&lt;!&ndash; 在获取连接的时候检查有效性, 默认false &ndash;&gt;-->
+        <!--<property name="testOnBorrow" value="true" />-->
+        <!--&lt;!&ndash; 在空闲时检查有效性, 默认false &ndash;&gt;-->
+        <!--<property name="testWhileIdle" value="true" />-->
+        <!--&lt;!&ndash; 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true &ndash;&gt;-->
+        <!--<property name="blockWhenExhausted" value="false" />-->
+    <!--</bean>-->
+
+
+
+
+
+</beans>

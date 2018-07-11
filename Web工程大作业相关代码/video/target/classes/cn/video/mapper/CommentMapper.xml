@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.video.mapper.CommentMapper">
+    <!--<select id="findbyid" parameterType="Integer" resultMap="StudentResult">  -->
+    <!--select *from student where id=#{id}  -->
+    <!--</select>-->
+
+    <!--<select id="findbygradeid" parameterType="Integer" resultMap="StudentResult">  -->
+    <!--select *from student where gid=#{gid}  -->
+    <!--</select>-->
+
+    <!--<resultMap type="Student" id="StudentResult">-->
+    <!--<id property="id" column="id"/>-->
+    <!--<result property="name" column="name"/>-->
+    <!--<result property="age" column="age"/>-->
+    <!--<association property="address" column="addid" select="com.qbd.mapper.AddressMappers.findbyid">-->
+    <!--</association>-->
+    <!--<association property="grade" column="gid" select="com.qbd.mapper.GradeMappers.findbyid">-->
+    <!--</association>-->
+    <!--</resultMap>-->
+
+    <resultMap type="cn.video.pojo.Comment" id="BaseResMap">
+        <id property="id" column="id" jdbcType="INTEGER" javaType="int"/>
+        <result property="userId" column="userId" jdbcType="INTEGER" javaType="int"/>
+        <result property="videoId" column="videoId" jdbcType="INTEGER" javaType="int"/>
+        <result property="content" column="content" jdbcType="VARCHAR" javaType="String"/>
+        <result property="date" column="date" jdbcType="DATE" javaType="java.util.Date"/>
+        <result property="floor" column="floor" jdbcType="VARCHAR" javaType="String"/>
+    </resultMap>
+
+
+    <insert id="insertComment">
+        insert into comments(userId,videoId,content,date)
+        values (#{userId},#{videoId},#{content},#{date})
+        <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+            <!--<if test="userId != null">#{userId},</if>-->
+            <!--<if test="videoId != null">#{videoId},</if>-->
+            <!--<if test="content != null">#{content},</if>-->
+            <!--<if test="date != null">#{date},</if>-->
+        <!--</trim>-->
+
+        <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+            <!--<if test="userId != null">#{userId},</if>-->
+            <!--<if test="videoId != null">#{videoId},</if>-->
+            <!--<if test="content != null">#{content},</if>-->
+            <!--<if test="date != null">#{date},</if>-->
+        <!--</trim>-->
+    </insert>
+    <!--<select id="selectAllByVideoId" resultType="cn.video.pojo.Comment">-->
+    <!--select *-->
+    <!--from comments-->
+    <!--where videoId = #{videoId}-->
+    <!--limit page,10;-->
+    <!--</select>-->
+
+    <!--<select id="queryAll" resultMap="userBaseResMap">-->
+    <!--select * from users;-->
+    <!--</select>-->
+
+    <!--<select id="selectByPhone" resultType="cn.video.pojo.User">-->
+    <!--select * from  users where phone = #{phone}-->
+    <!--</select>-->
+
+    <!--<insert id="insertUser" parameterType="cn.video.pojo.User">-->
+    <!--insert into users(phone,password) values(#{phone},#{password})-->
+    <!--</insert>-->
+
+</mapper>

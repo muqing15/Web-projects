@@ -1,0 +1,14 @@
+GET http://localhost:8080/register?=&phone=15999999998&name=wangbadan&password=123456&verify_password=123456&smsCode=123
+Accept: */*
+
+<> 2018-07-09T111218.200.html
+
+###
+
+GET http://localhost:8080/register?=&phone=15999999999&name=wangbadan&password=123456&verify_password=123456&smsCode=123
+Accept: */*
+
+<> 2018-07-09T111058.200.html
+
+###
+
